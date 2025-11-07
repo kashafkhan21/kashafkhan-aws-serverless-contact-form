@@ -2,13 +2,14 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Contact Form Project 2</title>
-    </head>
+    <title>AWS Serverless Contact Form Project</title>
+</head>
 <body>
 
-    <h1>Contact Us</h1>
+    <h1>Contact Form Demo</h1>
+    <p>This page demonstrates the *frontend* for a serverless project (S3, API Gateway, Lambda, DynamoDB). The backend services have been shut down to save costs, but the original code is available on this GitHub repository.</p>
     
-    <form id="contactForm">
+    <form action="#" method="POST">
         <label for="name">Your Name:</label>
         <input type="text" id="name" name="name" placeholder="Your Name" required><br><br>
         
@@ -18,51 +19,8 @@
         <label for="message">Your Message:</label>
         <textarea id="message" name="message" placeholder="Your Message" required></textarea><br><br>
         
-        <button type="submit">Send Message</button>
+        <button type="submit">Send Message (Backend is Inactive)</button>
     </form>
 
-    <script>
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-        // Stop the browser's default submission
-        event.preventDefault(); 
-
-        // *ACTION REQUIRED: REPLACE THIS URL* with your actual HTTP API Invoke URL
-        const apiGatewayUrl = 'https://8yg9bmvx15.execute-api.eu-north-1.amazonaws.com'; 
-
-        // Gather data using the exact IDs from your HTML
-        const nameValue = document.getElementById('name').value;
-        const emailValue = document.getElementById('email').value;
-        const messageValue = document.getElementById('message').value;
-
-        // Create the JSON data structure that your Lambda expects
-        const formData = {
-            name: nameValue,
-            email: emailValue,
-            message: messageValue
-        };
-
-        // Use fetch to send the JSON data
-        fetch(apiGatewayUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json' 
-            },
-            body: JSON.stringify(formData) 
-        })
-        .then(response => {
-            if (response.ok) {
-                alert('Success! Your message was sent and should be saved in DynamoDB.');
-                document.getElementById('contactForm').reset(); // Clear form on success
-            } else {
-                alert('Submission failed. Check network tab (F12) for API error.');
-            }
-        })
-        .catch(error => {
-            console.error('Error submitting form:', error);
-            alert('An error occurred. Check browser console for details.');
-        });
-    });
-    </script>
-    
 </body>
 </html>

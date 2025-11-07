@@ -4,7 +4,7 @@ Project Goal:
 To build a highly reliable, zero-maintenance contact form backend using only AWS Serverless services. This demonstrates competence in building cost-effective, modern cloud solutions.
 
 🚀 Live Demo
-Live Website: http://kashafkhan-6nov2025.s3-website.eu-north-1.amazonaws.com
+Live Website: https://kashafkhan21.github.io/kashafkhan-aws-serverless-contact-form/
 
 🛠 Architecture Overview
 This system is composed of four main serverless components working together:
